@@ -8,6 +8,29 @@
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        @keyframes slide-horizontal {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .image-slide {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: slide-horizontal 10s infinite linear;
+  }
       </style>
   </head>
 
