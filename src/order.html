@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders - Dieng Plateau</title>
+    <script src="//cdn.tailwindcss.com"></script>
+    <script>
+      let cart = [];
+
+      function toggleCart(item, checkbox) {
+        if (checkbox.checked) {
+          if (!cart.includes(item)) {
+            cart.push(item);
+          }
+        } else {
+          cart = cart.filter(cartItem => cartItem !== item);
+        }
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartContainer = document.getElementById('cart-items');
+        cartContainer.innerHTML = cart.map(item => `<li>${item}</li>`).join('');
+      }
+
+      function checkout() {
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+        } else {
+          alert(`You have successfully checked out: \n- ${cart.join('\n- ')}`);
+          cart = [];
+          updateCart();
+          document.querySelectorAll('input[type=checkbox]').forEach(checkbox => checkbox.checked = false);
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <nav class="fixed w-full backdrop-blur-md bg-white/30 shadow-lg">
+      <div class="container mx-auto flex justify-center p-4">
+        <a href="index.html" class="text-rgb(255 255 255 / var(--tw-text-opacity, 1)) text-2xl font-bold">
+          Dieng Plateau
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <!-- Check Out Section -->
+      <section class="py-12">
+        <div class="container mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">Check Out</h2>
+          <p>Nikmati liburan Anda di Dieng Plateau dengan lebih nyaman dan aman!</p>
+
+          <!-- Accommodation Section -->
+          <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-4">Accommodation</h3>
+            <ul class="space-y-2">
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Hotel A', this)" />
+                  Hotel A
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Villa B', this)" />
+                  Villa B
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Guesthouse C', this)" />
+                  Guesthouse C
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Activities Section -->
+          <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-4">Activities</h3>
+            <ul class="space-y-2">
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Sunrise Tour', this)" />
+                  Sunrise Tour
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Temple Visit', this)" />
+                  Temple Visit
+                </label>
+              </li>
+              <li>
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2" onclick="toggleCart('Hiking Experience', this)" />
+                  Hiking Experience
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cart Section -->
+          <div class="mt-6">
+            <h3 class="text-xl font-semibold mb-4">Your Cart</h3>
+            <ul id="cart-items" class="list-disc list-inside text-left"></ul>
+          </div>
+
+          <!-- Checkout Button -->
+          <div class="mt-6">
+            <button
+              onclick="checkout()"
+              class="bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-500"
+            >
+              Checkout
+            </button>
+          </div>
+
+          <!-- Back Button -->
+          <div class="mt-6">
+            <button
+              onclick="history.back()"
+              class="bg-indigo-600 text-white px-6 py-2.5 rounded-lg hover:bg-indigo-500 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 active:bg-indigo-700"
+            >
+              Go Back
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+      <p>&copy; 2023 Discover Dieng Plateau. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
