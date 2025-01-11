@@ -1,255 +1,462 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" nomodule></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <title>Dataran Tinggi Dieng</title>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-        @keyframes slide-horizontal {
-    0% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
+    <title>Dieng Plateau</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-  .image-slide {
-    overflow: hidden;
-    position: relative;
-  }
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        .grid-cols-1 {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  .image-slide img {
-    display: block;
-    width: 100%;
-    height: auto;
-    animation: slide-horizontal 10s infinite linear;
-  }
-      </style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
 
-  <body class="bg-gray-100 te text-gray-800 font-['Funnel_Sans']">
+  <body class="bg-gray-100 text-gray-800 font-['Funnel_Sans']">
     <!-- Navbar -->
-    <nav class="fixed w-full bg-transparent backdrop-blur-md p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1>
-          <a href="index.html" class="text-white text-2xl font-bold"
-            >Dieng Plateau</a
+  <nav class="fixed w-full backdrop-blur-md p-4 z-10 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1>
+        <a href="index.html" class="text-white text-2xl font-bold">Dieng Plateau</a>
+      </h1>
+      <span
+        id="hamburger-icon"
+        class="text-3xl cursor-pointer md:hidden block text-white"
+      >
+        <ion-icon name="menu"></ion-icon>
+      </span>
+      <ul
+        id="nav-links"
+        class="hidden md:flex md:items-center md:static absolute bg-black md:bg-transparent top-16 md:top-0 left-0 w-full md:w-auto space-y-4 md:space-y-0 md:space-x-4 px-5 md:px-0 py-4 md:py-0"
+      >
+        <li><a href="#activities" class="block text-white hover:text-gray-400">Aktivitas</a></li>
+        <li><a href="#accomodation" class="block text-white hover:text-gray-400">Akomodasi</a></li>
+        <li><a href="#tips" class="block text-white hover:text-gray-400">Tips Perjalanan</a></li>
+        <li>
+          <a href="order.html"
+            class="block bg-yellow-500 py-2 px-4 rounded-lg text-black font-medium hover:bg-yellow-600 transition duration-300"
+            >Pesanan Anda</a
           >
-        </h1>
-        <ul class="flex space-x-4">
-          <li><a href="#activities" class="text-white">Activities</a></li>
-          <li>
-            <a href="#accomodation" class="text-white">Accommodation</a>
-          </li>
-          <li><a href="#tips" class="text-white">Travel-Tips</a></li>
-          <li><a href="contact.html" class="text-white">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <!-- Hero Section -->
     <header class="h-screen bg-cover bg-center bg-custom-gradient">
       <div class="flex items-center justify-center h-full">
         <div class="text-center">
           <h2 class="text-white text-4xl md:text-6xl font-['Julius_Sans_One'] animate-fade-in">
-            Experience the Cool Highlands of Indonesia
+            Rasakan Sejuknya Dataran Tinggi Indonesia
           </h2>
           <p class="text-gray-200 mt-4 text-lg font-['Julius_Sans_One'] md:text-xl">
-            Where nature, history, and adventure meet.
+            Tempat di mana alam, sejarah, dan petualangan bertemu.
           </p>
           <a
             href="#main-content"
             class="mt-6 inline-block bg-yellow-500 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition duration-300"
-            >Explore Now</a
+            >Jelajahi Sekarang</a
           >
         </div>
       </div>
     </header>
-    
-  
-    
+
     <!-- Main Content -->
     <main id="main-content" class="bg-black py-12">
       <div class="container mx-auto text-center">
-        <h2 class="text-white text-5xl font-bold mb-6">Welcome to Dieng Plateau</h2>
+        <h2 class="text-white text-5xl font-bold mb-6 mt-12">Selamat Datang di Dataran Tinggi Dieng</h2>
         <p class="text-white -700 max-w-2xl mx-auto mb-8">
-          Discover the beauty, culture, and adventure that awaits you in the
-          highlands of Indonesia. From ancient temples to breathtaking
-          landscapes, Dieng Plateau offers an unforgettable experience.
+          Temukan keindahan, budaya, dan petualangan yang menanti Anda di dataran tinggi Indonesia. Dari candi kuno hingga pemandangan yang menakjubkan, Dataran Tinggi Dieng menawarkan pengalaman tak terlupakan.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div
-            class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-          >
-          <img src="/img/andri-hermawan-mZjSvUtky1A-unsplash.jpg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-bold mb-2">Adventure Activities</h3>
+          <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+            <img src="/img/andri-hermawan-mZjSvUtky1A-unsplash.png" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+            <br>
+            <h3 class="text-xl font-bold mb-2">Aktivitas Petualangan</h3>
             <p class="text-gray-600">
-              Enjoy trekking, hiking, and exploring natural wonders.
+              Nikmati mendaki, trekking, dan menjelajahi keajaiban alam.
             </p>
           </div>
-          <div
-            class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-          >
-          <img src="/img/Indonesia Tourism Forum, Where You Can Find Any Information About Indonesia.jpeg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-bold mb-2">Local Culture</h3>
+          <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+            <img src="/img/Indonesia Tourism Forum, Where You Can Find Any Information About Indonesia.jpeg" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+            <br>
+            <h3 class="text-xl font-bold mb-2">Budaya Lokal</h3>
             <p class="text-gray-600">
-              Experience the unique traditions and cuisine of Dieng.
+              Rasakan tradisi unik dan kuliner khas Dieng.
             </p>
           </div>
-          <div
-            class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-          >
-          <img src="/img/Dieng Plateau, Indonesia.jpeg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-bold mb-2">Stunning Views</h3>
+          <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+            <img src="/img/Dieng Plateau, Indonesia.png" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+            <br>
+            <h3 class="text-xl font-bold mb-2">Pemandangan Menakjubkan</h3>
             <p class="text-gray-600">
-              Capture breathtaking sunrises and picturesque landscapes.
+              Nikmati matahari terbit yang memukau dan lanskap yang indah.
             </p>
           </div>
         </div>
       </div>
     </main>
-    
-<!-- Activities Section -->
+
+<!-- Section Aktivitas -->
 <section id="activities" class="bg-black py-12">
   <div class="container mx-auto text-center">
-    <h2 class="text-3xl text-white font-bold mb-6">Activities</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div
-        class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-      >
-        <img
-          src="/img/hiking.jpg"
-          alt="foto1"
-          class="w-full h-48 object-cover"
-        />
-        <h3 class="text-xl font-bold mb-2">Hiking</h3>
-        <p class="text-gray-600">
-          Bukit Sikunir Trail
-        </p>
+    <h2 class="text-3xl text-white font-bold mb-6 mt-12">Aktivitas</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Aktivitas 1: Mendaki -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="https://javaprivatetour.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-06-at-20.08.04.jpeg" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-bold mb-2">Mendaki</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Nikmati udara segar dan jalur pendakian seru...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300 text-sm sm:text-base"
+          onclick="openActivityModal('mendaki')">Read More..</button>
       </div>
-      <div
-        class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-      >
-        <img
-          src="/img/WhatsApp Image 2024-12-10 at 21.40.12_46c1d326.jpg"
-          alt="foto1"
-          class="w-full h-48 object-cover"
-        />
-        <h3 class="text-xl font-bold mb-2">Cultural Tours</h3>
-        <p class="text-gray-600">
-          Visit Candi Arjuna
-        </p>
+      <!-- Aktivitas 2: Tur Budaya -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="/img/WhatsApp Image 2024-12-10 at 21.40.12_46c1d326.jpg" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-bold mb-2">Tur Budaya</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Menyelami tradisi khas yang tak terlupakan...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300 text-sm sm:text-base"
+          onclick="openActivityModal('tur')">Read More..</button>
       </div>
-      <div
-        class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300"
-      >
-        <img
-          src="/img/WhatsApp Image 2024-12-10 at 21.40.12_7909267f.jpg"
-          alt="foto1"
-          class="w-full h-48 object-cover"
-        />
-        <h3 class="text-xl font-bold mb-2">Nature Tours</h3>
-        <p class="text-gray-600">
-          Explore Telaga Warna and Kawah Sikidang
-        </p>
+      <!-- Aktivitas 3: Perjalanan Alam -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="/img/WhatsApp Image 2024-12-10 at 21.40.12_7909267f.jpg" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-bold mb-2">Perjalanan Alam</h3>
+        <p class="text-gray-600 text-sm sm:text-base">Menjelajahi alam yang indah dan penuh warna kehidupan...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300 text-sm sm:text-base"
+          onclick="openActivityModal('alam')">Read More..</button>
       </div>
     </div>
+  </div>
+
+  <!-- Modal Struktur untuk Aktivitas -->
+  <div id="activity-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="modal-content bg-white rounded-lg p-6 w-11/12 sm:w-4/5 md:w-2/3 lg:w-1/2 relative transform scale-90 opacity-0 transition-all duration-300 ease-out">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-black" onclick="closeActivityModal()">✖</button>
+      <img id="activity-modal-image" src="" alt="Activity Image" class="w-full h-32 sm:h-48 object-cover rounded-lg mb-4">
+      <h3 id="activity-modal-title" class="text-2xl font-bold mb-4"></h3>
+      <p id="activity-modal-content" class="text-gray-700"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript untuk Aktivitas Modal -->
+  <script>
+    const activityData = {
+  mendaki: {
+    title: "Mendaki",
+    content: `Nikmati udara segar dan jalur pendakian yang menantang di Dieng Plateau. Jelajahi berbagai puncak gunung yang menawarkan pemandangan spektakuler dan pengalaman yang tak terlupakan. Selain itu, Anda bisa menikmati fenomena alam yang jarang terlihat, seperti kawah vulkanik dan ladang bunga edelweiss yang memukau. Pendakian ini juga memberikan kesempatan untuk melihat matahari terbit yang mempesona dari Bukit Sikunir, salah satu tempat terbaik untuk menikmati panorama alam Dieng yang memikat.`,
+    image: "https://javaprivatetour.com/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-06-at-20.08.04.jpeg"
+  },
+  tur: {
+    title: "Tur Budaya",
+    content: `Mengunjungi Dieng tidak lengkap tanpa mengikuti tur budaya yang mendalam. Eksplorasi situs bersejarah yang kaya dengan nilai budaya, seperti Candi Arjuna, Candi Bima, dan Candi Srikandi, yang tersebar di sekitar kawasan ini. Anda juga akan diajak untuk mengunjungi desa-desa adat yang masih mempertahankan tradisi mereka, serta menyaksikan upacara adat yang penuh makna. Jangan lewatkan kesempatan untuk berinteraksi langsung dengan masyarakat setempat dan mempelajari berbagai cerita legenda yang telah turun-temurun.`,
+    image: "/img/WhatsApp Image 2024-12-10 at 21.40.12_46c1d326.jpg"
+  },
+  alam: {
+    title: "Perjalanan Alam",
+    content: `Dieng Plateau adalah surga bagi para pencinta alam. Dalam perjalanan alam ini, Anda akan menyusuri lembah yang hijau dan pegunungan yang megah, yang menawarkan pemandangan luar biasa di setiap sudutnya. Dari hutan tropis yang lebat hingga padang rumput yang luas, Anda akan merasakan kedamaian yang hanya bisa ditemukan di alam bebas. Dalam perjalanan ini, Anda bisa menikmati keindahan Telaga Warna yang terkenal dengan air danau yang berwarna-warni, serta mengunjungi Telaga Cebong yang menakjubkan. Tak hanya itu, fenomena alam seperti kabut tipis yang menyelimuti kawasan ini menambah keajaiban yang bisa Anda temui sepanjang perjalanan.`,
+    image: "/img/WhatsApp Image 2024-12-10 at 21.40.12_7909267f.jpg"
+  }
+};
+
+
+    // Fungsi untuk membuka modal aktivitas
+    function openActivityModal(key) {
+      const modal = document.getElementById("activity-modal");
+      const title = document.getElementById("activity-modal-title");
+      const content = document.getElementById("activity-modal-content");
+      const image = document.getElementById("activity-modal-image");
+
+      title.innerText = activityData[key].title;
+      content.innerText = activityData[key].content;
+      image.src = activityData[key].image;
+
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        modal.classList.add("show");
+      }, 10); 
+    }
+
+    function closeActivityModal() {
+      const modal = document.getElementById("activity-modal");
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    }
+  </script>
+
+  <style>
+    #activity-modal.hidden {
+      display: none;
+    }
+
+    #activity-modal.show .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    #activity-modal.show .modal-content:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+  </style>
+</section>
+
+<!-- Accommodation Section -->
+<section id="accomodation" class="bg-black py-12">
+  <div class="container mx-auto text-center mb-12">
+    <h2 class="text-3xl text-white font-bold mb-6 mt-12">Akomodasi</h2>
+    <p class="text-white">
+      Choose from cozy homestays, eco-friendly resorts, and budget-friendly guesthouses.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+      <!-- Penginapan Nyaman -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="https://diengcool.co/_nuxt/image/4b6556.jpg" alt="foto1" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-semibold">Penginapan Nyaman</h3>
+        <p>Menginap di homestay nyaman dengan suasana ramah...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300"
+          onclick="openModal('nyaman')">Read More..</button>
+      </div>
+      <!-- Resort Ramah Lingkungan -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="https://awsimages.detik.net.id/community/media/visual/2022/07/30/memanjakan-diri-bak-bangsawan-jawa-di-ledesa-resort-syariah_169.jpeg?w=650" alt="foto2" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-semibold">Resort Ramah Lingkungan</h3>
+        <p>Resort ramah lingkungan dengan fasilitas modern...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300"
+          onclick="openModal('resort')">Read More..</button>
+      </div>
+      <!-- Penginapan Hemat -->
+      <div class="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 max-w-xs mx-auto">
+        <img src="https://raja-wisata.com/wp-content/uploads/2024/08/Hotel-Asri-dieng.webp" alt="foto3" class="w-full h-48 object-cover rounded-lg">
+        <br>
+        <h3 class="text-xl font-semibold">Penginapan Hemat</h3>
+        <p>Penginapan hemat yang nyaman dan strategis...</p>
+        <button class="read-more-btn text-blue-500 px-4 py-2 mt-3 rounded-lg hover:text-black transition duration-300"
+          onclick="openModal('hemat')">Read More..</button>
+      </div>
     </div>
   </div>
 </section>
 
-     <!-- Accommodation Section -->
-     <section id="accomodation" class="bg-black py-12">
-      <div class="container mx-auto text-center">
-        <h2 class="text-3xl text-white font-bold mb-6">Accommodation</h2>
-        <p class="text-white">
-          Choose from cozy homestays, eco-friendly resorts, and budget-friendly
-          guesthouses.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/img/Telaga Warna Dieng Plateau.jpeg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-semibold">Cozy Homestays</h3>
-            <p>
-              Experience the warmth of local hospitality in charming homestays.
-            </p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/img/rafael-atantya-AQp43uKIf6k-unsplash.jpg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-semibold">Eco-Friendly Resorts</h3>
-            <p>Relax in nature while enjoying sustainable practices.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <img src="/img/magicalmorning.jpeg" alt="foto1" class="w-full h-48 object-cover">
-            <h3 class="text-xl font-semibold">Budget Guesthouses</h3>
-            <p>Affordable options for travelers on a budget.</p>
+<!-- Modal Structure -->
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="modal-content bg-white rounded-lg p-6 w-11/12 sm:w-4/5 md:w-2/3 lg:w-1/2 relative transform scale-90 opacity-0 transition-all duration-300 ease-out">
+    <button class="absolute top-4 right-4 text-gray-500 hover:text-black" onclick="closeModal()">✖</button>
+    <img id="modal-image" src="" alt="Accommodation Image" class="w-full h-32 sm:h-48 object-cover rounded-lg mb-4">
+    <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+    <p id="modal-content" class="text-gray-700"></p>
+  </div>
+</div>
+
+<!-- CSS for Modal Transitions -->
+<style>
+  /* Modal hidden state */
+  #modal.hidden {
+    display: none;
+  }
+
+  /* Modal visible state with fade-in effect */
+  #modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  /* Hover effect for modal content */
+  #modal.show .modal-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  const accommodationData = {
+    nyaman: {
+      title: "Penginapan Nyaman",
+      content: `Homestay ini menawarkan pengalaman menginap dengan suasana seperti di rumah sendiri. 
+        Dilengkapi dengan fasilitas modern seperti kamar tidur luas, Wi-Fi gratis, dapur lengkap, dan area keluarga untuk bersantai. 
+        Lokasinya dekat dengan tempat wisata lokal, sehingga memudahkan perjalanan Anda. 
+        Tuan rumah yang ramah akan menyambut Anda dengan keramahan khas daerah dan menjamin kenyamanan selama Anda menginap.`,
+      image: "/img/Telaga Warna Dieng Plateau.jpeg"
+    },
+    resort: {
+      title: "Resort Ramah Lingkungan",
+      content: `Resort ini memadukan kemewahan dan perhatian terhadap lingkungan. 
+        Dibangun dengan material ramah lingkungan dan didukung dengan energi terbarukan, resort ini menawarkan kenyamanan modern tanpa merusak alam sekitar. 
+        Nikmati fasilitas seperti kolam renang infinity, restoran dengan bahan organik lokal, dan spa yang menggunakan produk alami. 
+        Pemandangan spektakuler dari kamar akan membuat Anda betah berlama-lama di sini.`,
+      image: "/img/rafael-atantya-AQp43uKIf6k-unsplash.jpg"
+    },
+    hemat: {
+      title: "Penginapan Hemat",
+      content: `Penginapan ini merupakan pilihan ideal untuk pelancong dengan anggaran terbatas. 
+        Meskipun ekonomis, fasilitasnya tetap nyaman dan bersih. Lokasinya strategis, dekat dengan stasiun kereta, terminal bus, dan tempat wisata populer. 
+        Anda juga akan menemukan banyak pilihan tempat makan murah di sekitar. 
+        Penginapan ini menyediakan layanan laundry, Wi-Fi gratis, dan staf yang siap membantu kebutuhan perjalanan Anda.`,
+      image: "/img/magicalmorning.jpeg"
+    }
+  };
+
+  function openModal(key) {
+    const modal = document.getElementById("modal");
+    const title = document.getElementById("modal-title");
+    const content = document.getElementById("modal-content");
+    const image = document.getElementById("modal-image");
+
+    title.innerText = accommodationData[key].title;
+    content.innerText = accommodationData[key].content;
+    image.src = accommodationData[key].image;
+
+    modal.classList.remove("hidden");
+    setTimeout(() => {
+      modal.classList.add("show");
+    }, 10);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 300);
+  }
+</script>
+
+    <!-- Section Tips -->
+    <section id="tips" class="bg-gradient-to-bl from-[#ffe4e6]  to-[#ccfbf1] py-12 text-gray-800">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Tips Perjalanan</h2>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Waktu terbaik untuk berkunjung: Juni hingga September</li>
+          <li>Bawa pakaian hangat karena cuaca dingin di Dieng.</li>
+          <li>Jangan lewatkan matahari terbit di Bukit Sikunir.</li>
+          <li>Kunjungi situs budaya seperti Candi Arjuna.</li>
+        </ul>
+        <div class="mt-8">
+          <h3 class="text-2xl font-semibold mb-4">Prakiraan Cuaca di Dieng</h3>
+          <div id="cuaca" class="bg-white p-6 rounded shadow-md">
+            <p class="text-gray-300">Memuat data cuaca...</p>
           </div>
         </div>
       </div>
     </section>
+    
+    <script>
+const hamburgerIcon = document.getElementById('hamburger-icon');
+    const navLinks = document.getElementById('nav-links');
 
-<!-- Tips Section Activities -->
-<section id="tips" class="py-12">
-  <div class="container mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-6">Tips Perjalanan</h2>
-    <ul class="list-disc list-inside">
-      <li class="mb-2">Waktu terbaik untuk berkunjung: Juni hingga September</li>
-      <li class="mb-2">Bawa pakaian hangat karena cuaca dingin di Dieng.</li>
-      <li class="mb-2">Jangan lewatkan matahari terbit di Bukit Sikunir.</li>
-      <li class="mb-2">Kunjungi situs budaya seperti Candi Arjuna.</li>
-    </ul>
-    <div class="mt-8">
-      <h3 class="text-2xl font-semibold mb-4">Prakiraan Cuaca di Dieng</h3>
-      <div id="cuaca" class="bg-gray-100 p-4 rounded shadow-md text-center">
-        <p class="text-gray-500">Memuat data cuaca...</p>
-      </div>
-    </div>
-  </div>
-</section>
+    hamburgerIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('hidden');
+    });
 
-<!-- Script API Cuaca -->
-<script>
-  const cuacaElement = document.getElementById('cuaca');
-
-  async function fetchCuaca() {
-    try {
-      const response = await fetch(
-        'https://api.open-meteo.com/v1/forecast?latitude=-7.2097&longitude=109.9209&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Jakarta'
-      );
-      const data = await response.json();
-
-      const maxTemp = data.daily.temperature_2m_max[0];
-      const minTemp = data.daily.temperature_2m_min[0];
-
-      cuacaElement.innerHTML = `
-        <p class="text-lg">Suhu Maksimum Hari Ini: <span class="font-bold">${maxTemp}°C</span></p>
-        <p class="text-lg">Suhu Minimum Hari Ini: <span class="font-bold">${minTemp}°C</span></p>
-      `;
-    } catch (error) {
-      cuacaElement.innerHTML = '<p class="text-red-500">Gagal memuat data cuaca.</p>';
-    }
-  }
-
-  fetchCuaca();
-</script>
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.add('hidden');
+      });
+    });
+      const cuacaElement = document.getElementById('cuaca');
+    
+      async function fetchCuaca() {
+        try {
+          const response = await fetch(
+            'https://api.open-meteo.com/v1/forecast?latitude=-7.2097&longitude=109.9209&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Jakarta'
+          );
+          const data = await response.json();
+    
+          const maxTemp = data.daily.temperature_2m_max[0];
+          const minTemp = data.daily.temperature_2m_min[0];
+    
+          // Tentukan ikon cuaca
+          let icon = 'sunny'; 
+          if (maxTemp < 20) {
+            icon = 'cloudy'; 
+          } else if (maxTemp < 30) {
+            icon = 'partly-sunny'; 
+          }
+    
+          cuacaElement.innerHTML = `
+            <div class="flex items-center justify-center space-x-4">
+              <ion-icon name="${icon}" class="text-4xl text-yellow-400"></ion-icon>
+              <div>
+                <p class="text-lg">Suhu Maksimum Hari Ini: <span class="font-bold">${maxTemp}°C</span></p>
+                <p class="text-lg">Suhu Minimum Hari Ini: <span class="font-bold">${minTemp}°C</span></p>
+              </div>
+            </div>
+          `;
+        } catch (error) {
+          cuacaElement.innerHTML = '<p class="text-red-500">Gagal memuat data cuaca.</p>';
+        }
+      }
+    
+      fetchCuaca();
+    </script>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4">
-      <p>&copy; 2024 Discover Dieng Plateau. All rights reserved.</p>
-    </footer>
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const menu = document.querySelector("ul");
-      menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-    </script>
+    <footer class="bg-gray-900 text-gray-300 py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Tentang Kami</h3>
+            <p class="text-sm">
+              Dataran Tinggi Dieng adalah destinasi wisata yang menyatukan keindahan alam, sejarah, dan petualangan. Nikmati pengalaman tak terlupakan bersama kami.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Navigasi</h3>
+            <ul class="space-y-2">
+              <li><a href="#activities" class="hover:text-yellow-500 transition">Aktivitas</a></li>
+              <li><a href="#accomodation" class="hover:text-yellow-500 transition">Akomodasi</a></li>
+              <li><a href="#tips" class="hover:text-yellow-500 transition">Tips Perjalanan</a></li>
+              <li><a href="order.html" class="hover:text-yellow-500 transition">Pesanan Anda</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-4">Kontak Kami</h3>
+            <p class="text-sm">Email: info@diengplateau.com</p>
+            <p class="text-sm">Telepon: +62 812 3456 7890</p>
+            <div class="flex space-x-4 mt-4">
+              <a href="https://www.facebook.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-facebook" size="large"></ion-icon>
+              </a>
+              <a href="https://twitter.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-twitter" size="large"></ion-icon>
+              </a>
+              <a href="https://www.instagram.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-instagram" size="large"></ion-icon>
+              </a>
+              <a href="https://www.youtube.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-youtube" size="large"></ion-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-4 text-center">
+          <p class="text-sm">&copy; 2025 Dieng Plateau. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>    
   </body>
 </html>

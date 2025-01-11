@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders - Dieng Plateau</title>
+    <script src="//cdn.tailwindcss.com"></script>
+    <script>
+        let cart = [];
+        let total = 0;
+
+        const packages = {
+            'Hotel A': 500000,
+            'Villa B': 800000, 
+            'Guesthouse C': 300000,
+            'Sunrise Tour': 150000,
+            'Temple Visit': 100000,
+            'Hiking Experience': 200000,
+            'Combo Package': 400000
+        };
+
+        function toggleCart(item, checkbox) {
+            if (checkbox.checked) {
+                if (!cart.includes(item)) {
+                    cart.push(item);
+                    total += packages[item];
+                }
+            } else {
+                cart = cart.filter(cartItem => cartItem !== item);
+                total -= packages[item];
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = cart.map(item => 
+                `<li class="flex justify-between items-center">
+                    <span>${item}</span>
+                    <span>Rp ${packages[item].toLocaleString()}</span>
+                </li>`).join('');
+            
+            document.getElementById('total').textContent = `Rp ${total.toLocaleString()}`;
+        }
+
+        function checkout() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+            } else if (!name || !email) {
+                alert('Please enter your name and email!');
+            } else {
+                alert(`Thank you for your order, ${name}!\nTotal: Rp ${total.toLocaleString()}\nItems:\n- ${cart.join('\n- ')}\nWe will contact you at ${email}.`);
+                // Reset cart and total
+                cart = [];
+                total = 0;
+                updateCart();
+                document.querySelectorAll('input[type=checkbox]').forEach(checkbox => checkbox.checked = false);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-bl from-[#ffe4e6]  to-[#ccfbf1] text-gray-800">
+    <nav class="w-full backdrop-blur-md bg-white/30 shadow-lg z-50">
+        <div class="container mx-auto flex justify-center p-4">
+            <a href="index.html" class="text-gray-800 text-2xl font-bold">
+                Dieng Plateau
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-20 px-4">
+        <section class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 my-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Ayo Temukan Paket Wisata Terbaik!</h2>
+            
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Accommodation Section -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Akomodasi</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Hotel A', this)" />
+                                <span class="ml-2">Homestay</span>
+                            </label>
+                            <span>Rp 500.000</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Villa B', this)" />
+                                <span class="ml-2">Villa</span>
+                            </label>
+                            <span>Rp 800.000</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Guesthouse C', this)" />
+                                <span class="ml-2">Penginapan Hemat</span>
+                            </label>
+                            <span>Rp 300.000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activities Section -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Aktivitas</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Sunrise Tour', this)" />
+                                <span class="ml-2">Menikmati Senja</span>
+                            </label>
+                            <span>Rp 150.000</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Temple Visit', this)" />
+                                <span class="ml-2">Mengunjungi Candi</span>
+                            </label>
+                            <span>Rp 100.000</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Hiking Experience', this)" />
+                                <span class="ml-2">Mendaki</span>
+                            </label>
+                            <span>Rp 200.000</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded-lg shadow hover:shadow-md transition bg-blue-50">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" onclick="toggleCart('Combo Package', this)" />
+                                <span class="ml-2 font-semibold text-blue-600">Paket Kombo (Semua Aktivitas)</span>
+                            </label>
+                            <span class="text-blue-600">Rp 400.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Informasi Kontak</h3>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Nama</label>
+                    <input type="text" id="name" required class="mt-1 block w-full p-2 border border-gray-300 rounded" placeholder="Masukkan Nama">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded" placeholder="Masukkan email">
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Pesanan Anda</h3>
+                <ul id="cart-items" class="space-y-2 mb-4"></ul>
+                <div class="border-t pt-4 flex justify-between items-center">
+                    <span class="font-semibold">Total:</span>
+                    <span id="total" class="text-xl font-bold">Rp 0</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                <button onclick="history.back()" 
+                    class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-500 transition duration-300 flex-1 sm:flex-initial">
+                    Kembali
+                </button>
+                <button onclick="checkout()" 
+                    class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition duration-300 flex-1 sm:flex-initial">
+                    Bayar
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-4">Tentang Kami</h3>
+              <p class="text-sm">
+                Dataran Tinggi Dieng adalah destinasi wisata yang menyatukan keindahan alam, sejarah, dan petualangan. Nikmati pengalaman tak terlupakan bersama kami.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-4">Navigasi</h3>
+              <ul class="space-y-2">
+                <li><a href="#activities" class="hover:text-yellow-500 transition">Aktivitas</a></li>
+                <li><a href="#accomodation" class="hover:text-yellow-500 transition">Akomodasi</a></li>
+                <li><a href="#tips" class="hover:text-yellow-500 transition">Tips Perjalanan</a></li>
+                <li><a href="order.html" class="hover:text-yellow-500 transition">Pesanan Anda</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-4">Kontak Kami</h3>
+              <p class="text-sm">Email: info@diengplateau.com</p>
+              <p class="text-sm">Telepon: +62 812 3456 7890</p>
+              <div class="flex space-x-4 mt-4">
+                <a href="https://www.facebook.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-facebook" size="large"></ion-icon>
+                </a>
+                <a href="https://twitter.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-twitter" size="large"></ion-icon>
+                </a>
+                <a href="https://www.instagram.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-instagram" size="large"></ion-icon>
+                </a>
+                <a href="https://www.youtube.com" class="text-gray-400 hover:text-yellow-500 transition" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-youtube" size="large"></ion-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-gray-700 mt-8 pt-4 text-center">
+            <p class="text-sm">&copy; 2025 Dieng Plateau. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>      
+  </body>
+</html>
